@@ -1,28 +1,63 @@
 # Spotify Artist Explorer
 
-Spotify Artist Explorer is a full-stack React and Node.js web application that allows users to search for artists, view artist information, explore albums and top tracks, and save favourite artists locally in the browser.
+Spotify Artist Explorer is a full-stack React and Node.js web application that allows users to search for artists, explore albums and top tracks, and save favourite artists locally in the browser.
 
-The application integrates with the Spotify Web API and includes a fallback demo mode to ensure the interface remains usable when Spotify API access is restricted.
+The application integrates with the Spotify Web API and includes an automatic fallback demo mode so the interface remains functional even when Spotify API access is unavailable.
+
+## Project Highlights
+
+* Full-stack application using React and Express
+* Spotify Web API integration
+* REST API architecture
+* Local storage implementation for favourites
+* Responsive user interface
+* Error handling and API fallback system
+* Reusable React component structure
+* Environment variable configuration for security
 
 ---
 
-## Screenshot
+## Screenshots
 
-![Spotify Artist Explorer](screenshots/homepage.png)
+### Homepage
+
+![Homepage](screenshots/homepage.png)
+
+### Search Results
+
+![Search Results](screenshots/search-results.png)
+
+### Artist Details
+
+![Artist Details](screenshots/artist-details.png)
+
+### Albums and Top Tracks
+
+![Albums and Tracks](screenshots/albums-tracks.png)
+
+### Favourites System
+
+![Favourites](screenshots/favourites.png)
+
+### Demo Mode
+
+![Demo Mode](screenshots/demo-mode.png)
+
+---
 
 ## Features
 
 * Search for artists using the Spotify Web API
 * View artist profile information
-* Display artist popularity scores and follower counts
-* View artist genres
-* Browse albums and singles
+* Display popularity scores and follower counts
+* Browse genres
 * View top tracks
-* Open artists, tracks and albums directly in Spotify
+* Explore albums and singles
+* Open content directly in Spotify
 * Save favourite artists using localStorage
 * Remove favourite artists
-* Automatic demo mode fallback when Spotify API access is unavailable
-* Responsive Spotify-inspired user interface
+* Automatic fallback demo mode
+* Responsive Spotify-inspired interface
 
 ---
 
@@ -53,29 +88,32 @@ The application integrates with the Spotify Web API and includes a fallback demo
 
 ---
 
-## Demo Mode
+## Architecture Overview
 
-Spotify currently applies restrictions to some development applications.
+```text
+React Frontend
+       │
+       ▼
+Express Backend
+       │
+       ▼
+Spotify Web API
+       │
+       ▼
+Artist / Album / Track Data
+```
 
-If live Spotify API access is unavailable, the application automatically switches to demo mode.
-
-Demo mode loads local sample artist, album and track data, allowing the application to remain fully functional and demonstrating fallback handling for third-party API limitations.
+The frontend communicates with a custom Express server which handles authentication and requests to Spotify. This prevents API credentials from being exposed in the browser.
 
 ---
 
-## How It Works
+## Demo Mode
 
-The Express backend requests an access token from Spotify using the Client Credentials Flow.
+Spotify may restrict access to development applications depending on account status and API permissions.
 
-The React frontend communicates with the backend rather than directly communicating with Spotify. This prevents Spotify credentials from being exposed in the browser.
+If Spotify data cannot be retrieved, the application automatically switches to demo mode.
 
-The backend provides endpoints for:
-
-* Artist search
-* Album retrieval
-* Top track retrieval
-
-The frontend displays this data using reusable React components and stores favourite artists in localStorage.
+Demo mode loads local artist, album and track data so the application remains fully usable and demonstrates graceful handling of third-party API failures.
 
 ---
 
@@ -103,13 +141,9 @@ npm install
 
 ## Environment Variables
 
-Create a file called:
+Create a `.env` file in the project root.
 
-```text
-.env
-```
-
-Add the following:
+Example:
 
 ```env
 SPOTIFY_CLIENT_ID=your_client_id
@@ -117,17 +151,17 @@ SPOTIFY_CLIENT_SECRET=your_client_secret
 PORT=5000
 ```
 
-Do not upload this file to GitHub.
+A sample configuration is provided in `.env.example`.
+
+Do not commit your `.env` file to GitHub.
 
 ---
 
 ## Running the Application
 
-The project requires two terminals because the frontend and backend run separately.
+The project requires two terminals because the frontend and backend run independently.
 
 ### Terminal 1 – Backend Server
-
-Start the Express server:
 
 ```bash
 npm run server
@@ -139,11 +173,7 @@ Expected output:
 Server running on http://localhost:5000
 ```
 
----
-
-### Terminal 2 – React Frontend
-
-Start the Vite development server:
+### Terminal 2 – Frontend
 
 ```bash
 npm run dev
@@ -161,12 +191,12 @@ Open the displayed URL in your browser.
 
 ## Using the Application
 
-1. Enter an artist name.
-2. Click Search.
-3. Select an artist from the results.
-4. View artist details, albums and top tracks.
-5. Save favourite artists.
-6. If Spotify API access is unavailable, demo mode will automatically activate.
+1. Search for an artist.
+2. Select an artist from the results.
+3. View profile information.
+4. Explore top tracks and albums.
+5. Save artists to favourites.
+6. If Spotify access is unavailable, demo mode activates automatically.
 
 ---
 
@@ -188,7 +218,7 @@ spotify-artist-explorer/
 │   └── main.jsx
 ├── server.js
 ├── package.json
-├── .env
+├── .env.example
 └── README.md
 ```
 
@@ -207,40 +237,32 @@ GET /api/artist/:id/top-tracks
 
 ## Future Improvements
 
-* Artist comparison mode
-* Album sorting and filtering
+* Artist comparison dashboard
 * Recently searched artists
-* Charts and analytics
+* Advanced filtering and sorting
+* Listening statistics and charts
 * User authentication
-* Deployment to a cloud platform
-* Unit and integration testing
+* Cloud deployment
+* Automated testing
+* Docker containerisation
 
 ---
 
-## Screenshots
+## Skills Demonstrated
 
-Add screenshots of:
-
-* Search page
-* Artist details page
-* Albums section
-* Demo mode
-
-These improve the professionalism of the repository.
+* React development
+* REST API integration
+* Express backend development
+* State management
+* Component-based architecture
+* Local storage
+* Environment variable management
+* Error handling
+* Responsive web design
+* Full-stack application development
 
 ---
 
 ## Author
 
-Developed by Y. Ali as a portfolio project demonstrating:
-
-* React development
-* REST API integration
-* Backend development with Express
-* Responsive UI design
-* State management
-* Local storage
-* Error handling and fallback systems
-
-```
-```
+Developed by Y. Ali as a portfolio project to demonstrate modern web development practices using React, Node.js, Express and third-party API integration.
