@@ -6,6 +6,10 @@ The application integrates with the Spotify Web API and includes a fallback demo
 
 ---
 
+## Screenshot
+
+![Spotify Artist Explorer](screenshots/homepage.png)
+
 ## Features
 
 * Search for artists using the Spotify Web API
