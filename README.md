@@ -33,7 +33,7 @@ The application integrates with the Spotify Web API and includes an automatic fa
 
 ### Albums and Top Tracks
 
-![Albums and Tracks](screenshots/albums-tracks.png)
+![Albums and Tracks](screenshots/album-tracks.png)
 
 ### Favourites System
 
